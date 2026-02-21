@@ -2,6 +2,17 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
     margin-left: 10px;
+    width: 1000px;
+    background-color: white;
+    margin: 15px auto;
+    padding: 15px 1.5em;
+    border: 1px solid black;
+    border-radius: 25px;
+    box-shadow: 5px 5px 0 0;
+    background-image: url("/files/logo.png");
+    background-position: right top;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
 }
 
 a:focus, a:hover {
@@ -23,6 +34,7 @@ header h2 {
 
 header img {
     float: left;
+    margin-left: 2em;
 }
 
 .shadow {
@@ -31,11 +43,22 @@ header img {
 
 main {
     clear: left;
+    margin: 1.5em 2em 1.5em 2em;
+    border: 5px dashed blue;
+    border-radius: 20px;
+    box-shadow: 3px 3px 4px 4px red;
+    padding: 0.5em;
 }
 
 main h3 {
     margin-top: 3em;
     font-size: 105%;
+    margin: 3em 2em 1.5em 2em;
+    border: 5px double blue;
+    border-radius: 20px;
+    box-shadow: 3px 3px 4px 4px red;
+    padding: 1em;
+
 }
 
 #list {
@@ -45,4 +68,12 @@ main h3 {
 footer p.copyright {
     text-align: center;
     font-size: 80%;
+}
+
+.contact {
+    margin: 1.5em 2em 0em 2em;
+    border: 5px dotted blue;
+    border-radius: 20px;
+    box-shadow: 3px 3px 4px 4px red;
+    padding: 1em;
 }
