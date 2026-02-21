@@ -1,7 +1,10 @@
+html {
+    background-image: linear-gradient(to bottom, white 0%, #facd8a 100%);
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
-    margin-left: 10px;
     width: 1000px;
     background-color: white;
     margin: 15px auto;
@@ -10,7 +13,7 @@ body {
     border-radius: 25px;
     box-shadow: 5px 5px 0 0;
     background-image: url("/files/logo.png");
-    background-position: right top;
+    background-position: right;
     background-repeat: repeat-y;
     background-attachment: fixed;
 }
@@ -34,7 +37,7 @@ header h2 {
 
 header img {
     float: left;
-    margin-left: 2em;
+    margin-left: 2em; /* aligned with h3, nav, and contact */
 }
 
 .shadow {
@@ -43,6 +46,18 @@ header img {
 
 main {
     clear: left;
+}
+
+main h3 {
+    margin: 3em 2em 1.5em 2em;
+    font-size: 105%;
+    border: 5px double blue;
+    border-radius: 20px;
+    box-shadow: 3px 3px 4px 4px red;
+    padding: 1em;
+}
+
+main nav {
     margin: 1.5em 2em 1.5em 2em;
     border: 5px dashed blue;
     border-radius: 20px;
@@ -50,15 +65,12 @@ main {
     padding: 0.5em;
 }
 
-main h3 {
-    margin-top: 3em;
-    font-size: 105%;
-    margin: 3em 2em 1.5em 2em;
-    border: 5px double blue;
+.contact {
+    margin: 1.5em 2em 0em 2em;
+    border: 5px dotted blue;
     border-radius: 20px;
     box-shadow: 3px 3px 4px 4px red;
     padding: 1em;
-
 }
 
 #list {
@@ -68,12 +80,4 @@ main h3 {
 footer p.copyright {
     text-align: center;
     font-size: 80%;
-}
-
-.contact {
-    margin: 1.5em 2em 0em 2em;
-    border: 5px dotted blue;
-    border-radius: 20px;
-    box-shadow: 3px 3px 4px 4px red;
-    padding: 1em;
 }
