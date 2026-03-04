@@ -89,6 +89,12 @@ footer p.copyright {
     font-size: 80%;
 }
 
+hr {
+    border: none;
+    border-top: 2px solid maroon;
+    margin: 0;
+}
+
 p.fixed {
     width: auto;
     position: fixed;
