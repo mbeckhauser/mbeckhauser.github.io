@@ -20,8 +20,6 @@ body {
 }
 
 a:focus, a:hover {
-    font-style: italic;
-    color: orangered;
     border: 3px blue;
     border-style: dotted solid;
 }
@@ -94,11 +92,12 @@ footer p.copyright {
 p.fixed {
     width: auto;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 2px solid maroon;
-    padding: 1em;
-    border-radius: 10px;
-    box-shadow: 3px 3px 4px 4px rgba(128, 0, 0, 0.3);
+    bottom: 30px;
+    right: 30px;
+    background-color: white;
+    border: 3px solid maroon;
+    padding: 1em 1.5em;
+    border-radius: 15px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
