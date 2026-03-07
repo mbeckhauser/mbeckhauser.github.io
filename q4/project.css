@@ -94,14 +94,11 @@ footer p.copyright {
 }
 
 p.fixed {
-    position: static;
+    width: auto;
+    float: right;
     bottom: 30px;
     right: 30px;
-    width: calc(90%-100px);
-    max-width: 400px;
     background-color: rgb(51, 224, 80);
     border: 3px solid rgb(8, 104, 4);
     padding: 1em 1.5em;
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
 }
