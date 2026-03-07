@@ -16,7 +16,7 @@ body {
     background-size: 150px auto;
     background-position: right;
     background-repeat: repeat-y;
-    background-attachment: fixed;
+    background-attachment: static;
 }
 
 a:focus, a:hover {
