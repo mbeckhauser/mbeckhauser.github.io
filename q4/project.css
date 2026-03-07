@@ -102,8 +102,8 @@ p.fixed {
     clear: both;
     position: absolute;
     right: 0;
-    top: 550px;
-    margin-right: -1.5em;
+    top: 350px;
+    margin-right: 1.5em;
     margin-left: 0;
     background-color: rgb(51, 224, 80);
     border: 3px solid rgb(8, 104, 4);
