@@ -101,7 +101,7 @@ p.fixed {
     width: auto;
     clear: both;
     position: absolute;
-    left: 100px;
+    right: 0;
     top: 100px;
     margin-right: -1.5em;
     margin-left: 0;
