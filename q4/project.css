@@ -92,7 +92,7 @@ footer p.copyright {
 hr {
     border: none;
     border-top: 2px solid maroon;
-    margin: 0;
+    margin: auto;
 }
 
 p.fixed {
@@ -103,7 +103,6 @@ p.fixed {
     background-color: rgb(51, 224, 80);
     border: 3px solid rgb(8, 104, 4);
     padding: 1em 1.5em;
-    border-radius: 15px;
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
 }
