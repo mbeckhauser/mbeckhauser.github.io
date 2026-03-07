@@ -38,8 +38,6 @@ header img {
 
 header {
     border-bottom: 2px solid maroon;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
 }
 
 .shadow {
@@ -93,10 +91,6 @@ footer {
 footer p.copyright {
     text-align: center;
     font-size: 80%;
-}
-
-hr {
-    display: none;
 }
 
 p.fixed {
