@@ -97,7 +97,7 @@ hr {
 
 p.fixed {
     width: auto;
-    position: relative;
+    float: right;
     bottom: 30px;
     right: 30px;
     background-color: rgb(51, 224, 80);
