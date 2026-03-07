@@ -33,7 +33,7 @@ header h2 {
 
 header img {
     float: left;
-    margin-left: 0;
+    margin-left: 2em;
     margin-right: 1.5em;
     margin-bottom: 1em;
 }
@@ -108,4 +108,5 @@ p.fixed {
     background-color: rgb(51, 224, 80);
     border: 3px solid rgb(8, 104, 4);
     padding: 1em 1.5em;
+    padding-right: 1em;
 }
