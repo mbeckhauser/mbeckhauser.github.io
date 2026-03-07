@@ -36,6 +36,12 @@ header img {
     margin-left: 2em;
 }
 
+header {
+    border-bottom: 2px solid maroon;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
 .shadow {
     text-shadow: 2px 2px 2px rgb(128, 0, 0);
 }
@@ -52,6 +58,8 @@ article {
 
 article h3 {
     column-span: all;
+    margin-top: 0;
+    margin-bottom: 1em;
 }
 
 article img {
@@ -72,11 +80,14 @@ aside {
     float: right;
     background-color: #ffebc6;
     padding: 1em;
+    margin-right: 0;
 }
 
 footer {
     clear: both;
     border-top: 2px solid maroon;
+    padding-top: 1em;
+    margin-top: 1em;
 }
 
 footer p.copyright {
@@ -85,16 +96,15 @@ footer p.copyright {
 }
 
 hr {
-    border: none;
-    border-top: 2px solid maroon;
-    margin: auto;
+    display: none;
 }
 
 p.fixed {
-    width: auto;
-    float: right;
+    position: fixed;
     bottom: 30px;
     right: 30px;
+    width: calc(90%-100px);
+    max-width: 400px;
     background-color: rgb(51, 224, 80);
     border: 3px solid rgb(8, 104, 4);
     padding: 1em 1.5em;
