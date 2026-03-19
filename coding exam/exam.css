@@ -34,12 +34,12 @@ h1, h2, h3, h4 {
 }
 
 .shadow {
-    text-shadow: 2px 2px 2px  rgb(11, 32, 230);
+    text-shadow: 2px 2px 2px rgb(11, 32, 230);
 }
 
 nav {
     overflow: auto;
-    border-bottom: 2px solid  rgb(11, 32, 230);
+    border-bottom: 2px solid rgb(11, 32, 230);
     margin-bottom: 1em;
 }
 
@@ -55,17 +55,24 @@ nav ul li {
 
 nav ul li a {
     display: block;
+    background-color: rgb(11, 32, 230);
     color: white;
     text-decoration: none;
     padding: 0.7em 1.5em;
     font-style: normal;
+    margin-right: 4px;
 }
 
 nav ul li a:hover,
-nav ul li a:focus,
+nav ul li a:focus {
+    background-color: rgb(11, 32, 230);
+    color: lightyellow;
+    font-style: normal;
+}
+
 nav ul li a.active {
-    background-color:  rgb(11, 32, 230);
-    color: white;
+    background-color: rgb(11, 32, 230);
+    color: lightyellow;
     font-style: normal;
 }
 
@@ -74,7 +81,7 @@ article {
     width: 75%;
     float: left;
     column-count: 3;
-    column-rule: 2px dotted  rgb(11, 32, 230);
+    column-rule: 2px dotted rgb(11, 32, 230);
     column-gap: 2em;
 }
 
@@ -105,11 +112,12 @@ article p::first-letter {
 
 aside {
     width: 20%;
-    background-color:  rgb(138, 186, 250);
+    background-color: rgb(138, 186, 250);
     padding: 1em;
+    border: 1px solid rgb(11, 32, 230);
     position: fixed;
-    right: 0;
-    top: 60px;
+    right: 2.5%;
+    top: 70px;
 }
 
 aside ol {
@@ -142,7 +150,6 @@ aside a:focus {
 aside p {
     margin-top: 1em;
 }
-
 
 footer {
     clear: both;
