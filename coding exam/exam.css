@@ -37,10 +37,13 @@ h1, h2, h3, h4 {
     text-shadow: 2px 2px 2px rgb(11, 32, 230);
 }
 
+/* ── Nav Bar ── */
+
 nav {
     overflow: auto;
     border-bottom: 2px solid rgb(11, 32, 230);
     margin-bottom: 1em;
+    padding-bottom: 6px;
 }
 
 nav ul {
@@ -76,12 +79,14 @@ nav ul li a.active {
     font-style: normal;
 }
 
+/* ── Article ── */
+
 article {
     clear: left;
     width: 75%;
     float: left;
     column-count: 3;
-    column-rule: 2px dotted rgb(11, 32, 230);
+    column-rule: 4px dotted rgb(11, 32, 230);
     column-gap: 2em;
 }
 
@@ -107,8 +112,11 @@ article p::first-letter {
     font-size: 3em;
     font-weight: bold;
     font-style: italic;
-    color: lightgreen;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
 }
+
+/* ── Aside ── */
 
 aside {
     width: 20%;
@@ -117,7 +125,7 @@ aside {
     border: 1px solid rgb(11, 32, 230);
     position: fixed;
     right: 2.5%;
-    top: 70px;
+    top: 160px;
 }
 
 aside ol {
@@ -150,6 +158,8 @@ aside a:focus {
 aside p {
     margin-top: 1em;
 }
+
+/* ── Footer ── */
 
 footer {
     clear: both;
