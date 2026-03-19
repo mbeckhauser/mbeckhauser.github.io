@@ -1,5 +1,5 @@
 html {
-    background-image: linear-gradient(to left, white 0%, #facd8a 100%);
+    background-image: linear-gradient(to left, white 0%, rgb(138, 186, 250) 100%);
 }
 
 body {
@@ -20,7 +20,7 @@ body {
 }
 
 a {
-    color: maroon;
+    color: rgb(11, 32, 230);
     text-decoration: none;
 }
 
@@ -30,17 +30,17 @@ a:focus, a:hover {
 }
 
 h1, h2, h3, h4 {
-    color: maroon;
+    color: rgb(11, 32, 230);
 }
 
 .shadow {
-    text-shadow: 2px 2px 2px rgb(128, 0, 0);
+    text-shadow: 2px 2px 2px  rgb(11, 32, 230);
 }
 
 nav {
     background-color: #333;
     overflow: auto;
-    border-bottom: 2px solid maroon;
+    border-bottom: 2px solid  rgb(11, 32, 230);
     margin-bottom: 1em;
 }
 
@@ -65,7 +65,7 @@ nav ul li a {
 nav ul li a:hover,
 nav ul li a:focus,
 nav ul li a.active {
-    background-color: maroon;
+    background-color:  rgb(11, 32, 230);
     color: white;
     font-style: normal;
 }
@@ -75,7 +75,7 @@ article {
     width: 75%;
     float: left;
     column-count: 3;
-    column-rule: 2px dotted maroon;
+    column-rule: 2px dotted  rgb(11, 32, 230);
     column-gap: 2em;
 }
 
@@ -106,7 +106,7 @@ article p::first-letter {
 
 aside {
     width: 20%;
-    background-color: #ffebc6;
+    background-color:  rgb(138, 186, 250);
     padding: 1em;
     position: fixed;
     right: 0;
@@ -130,7 +130,7 @@ aside ol ul ol {
 }
 
 aside a {
-    color: maroon;
+    color: rgb(11, 32, 230);
     text-decoration: underline;
 }
 
@@ -147,7 +147,7 @@ aside p {
 
 footer {
     clear: both;
-    border-top: 2px solid maroon;
+    border-top: 2px solid rgb(11, 32, 230);
     padding-top: 1em;
     margin-top: 1em;
     text-align: center;
