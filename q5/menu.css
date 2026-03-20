@@ -1,6 +1,8 @@
 /* ── Nav Bar ── */
 
 nav {
+    overflow: auto;
+    margin-bottom: 1em;
     padding-bottom: 6px;
 }
 
