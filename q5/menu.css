@@ -1,15 +1,4 @@
-html {
-    background-image: linear-gradient(to left, white 0%, rgb(138, 186, 250) 100%);
-}
-
 /* ── Nav Bar ── */
-
-nav {
-    overflow: auto;
-    border-bottom: 2px solid rgb(11, 32, 230);
-    margin-bottom: 1em;
-    padding-bottom: 6px;
-}
 
 nav ul {
     list-style: none;
