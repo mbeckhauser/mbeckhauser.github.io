@@ -69,13 +69,13 @@ nav ul li a {
 nav ul li a:hover,
 nav ul li a:focus {
     background-color: rgb(11, 32, 230);
-    color: lightyellow;
+    color: rgb(228, 228, 33);
     font-style: normal;
 }
 
 nav ul li a.active {
     background-color: rgb(11, 32, 230);
-    color: lightyellow;
+    color: rgb(228, 228, 33);
     font-style: normal;
 }
 
@@ -97,7 +97,6 @@ article h1 {
 }
 
 article h2 {
-    column-span: all;
     margin-top: 0.8em;
     margin-bottom: 0.3em;
 }
