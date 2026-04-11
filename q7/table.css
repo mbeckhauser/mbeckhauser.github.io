@@ -41,20 +41,20 @@ table.third {
 table.third th, table.third td {
   padding: 0.7em;
   vertical-align: top;
-  border-left: 2px solid seagreen;
-  border-right: 2px solid seagreen;
+  border-left: 2px solid orange;
+  border-right: 2px solid orange;
 }
 table.third thead tr:first-child {
-  border-top: 2px solid seagreen;
-  border-bottom: 2px solid seagreen;
+  border-top: 2px solid orange;
+  border-bottom: 2px solid orange;
   background-color: lightgreen;
 }
 table.third thead tr:nth-child(2) {
-  border-bottom: 2px solid seagreen;
-  background-color: #c8e6c9;
+  border-bottom: 2px solid orange;
+  background-color: lightgreen;
 }
 table.third tbody tr:last-child {
-  border-bottom: 2px solid seagreen;
+  border-bottom: 2px solid orange;
 }
 
 @media only screen and (max-width: 425px) {
