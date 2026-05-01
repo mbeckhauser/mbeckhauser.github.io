@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Veterans Benefits Processing | Sam Houston State University</title>
+<link rel="icon" type="image/png" href="files/bearkat_paw.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     SHSU BRAND TOKENS
+     ========================================================= */
+  :root{
+    --shsu-orange: #F15A22;
+    --shsu-orange-dark: #C44617;
+    --shsu-orange-light: #FFF3ED;
+    --shsu-black: #1A1A1A;
+    --shsu-gray-900: #2B2B2B;
+    --shsu-gray-700: #4A4A4A;
+    --shsu-gray-500: #767676;
+    --shsu-gray-300: #D4D4D4;
+    --shsu-gray-100: #F4F4F4;
+    --shsu-gray-50: #FAFAFA;
+    --shsu-white: #FFFFFF;
+    --shsu-cream: #FBF8F4;
+    --shsu-success: #2E7D32;
+    --shsu-info: #1565C0;
+
+    --ff-body: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    --ff-display: 'Merriweather', Georgia, serif;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    --container: 1200px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--ff-body);
+    color:var(--shsu-gray-900);
+    background:var(--shsu-white);
+    line-height:1.6;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:var(--shsu-orange-dark); text-decoration:underline; text-underline-offset:2px; }
+  a:hover{ color:var(--shsu-orange); }
+  button{ font-family:inherit; cursor:pointer; }
+
+  .container{ max-width:var(--container); margin:0 auto; padding:0 1.25rem; }
+
+  /* Skip link for accessibility */
+  .skip-link{
+    position:absolute; left:-9999px; top:0;
+    background:var(--shsu-black); color:#fff;
+    padding:0.75rem 1rem; z-index:1000;
+  }
+  .skip-link:focus{ left:0; }
+
+  /* =========================================================
+     UTILITY BAR 
+     ========================================================= */
+  .util-bar{
+    background:var(--shsu-black);
+    color:#fff;
+    font-size:0.8125rem;
+  }
+  .util-bar .container{
+    display:flex; justify-content:flex-end; align-items:center;
+    gap:1.5rem; padding-top:0.5rem; padding-bottom:0.5rem;
+  }
+  .util-bar a{ color:#fff; text-decoration:none; }
+  .util-bar a:hover{ color:var(--shsu-orange); }
+  @media (max-width:700px){ .util-bar{ display:none; } }
+
+  /* =========================================================
+     HEADER / PRIMARY NAV
+     ========================================================= */
+  .site-header{
+    background:#fff;
+    border-bottom:1px solid var(--shsu-gray-300);
+    position:sticky; top:0; z-index:50;
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1rem 1.25rem;
+    max-width:var(--container); margin:0 auto;
+    gap:1.5rem;
+  }
+  .logo{
+    display:flex; align-items:center; gap:0.75rem;
+    text-decoration:none; color:var(--shsu-black);
+  }
+  .logo-mark{
+    height:52px; width:auto;
+    flex-shrink:0;
+    display:block;
+  }
+  @media (max-width:540px){ .logo-mark{ height:42px; } }
+  .logo-text{ line-height:1.1; }
+  .logo-text .kicker{
+    font-family:var(--ff-display); font-size:1rem;
+    color:var(--shsu-gray-700); font-weight:900;
+  }
+  .logo-text .name{
+    font-family:var(--ff-display); font-weight:600; font-size:0.75rem;
+    color:var(--shsu-black);
+  }
+  .primary-nav{ display:flex; align-items:center; gap:1.25rem; }
+  .primary-nav a{
+    color:var(--shsu-gray-900); text-decoration:none; font-weight:600;
+    font-size:0.9375rem; padding:0.5rem 0; position:relative;
+  }
+  .primary-nav a:hover{ color:var(--shsu-orange); }
+  .primary-nav .cta-apply{
+    background:var(--shsu-orange); color:#fff;
+    padding:0.5rem 1rem; border-radius:var(--radius-sm);
+  }
+  .primary-nav .cta-apply:hover{ background:var(--shsu-orange-dark); color:#fff; }
+  .menu-toggle{
+    display:none; background:none; border:0;
+    font-size:1.5rem; color:var(--shsu-black);
+    padding:0.5rem;
+  }
+  @media (max-width:880px){
+    .primary-nav{ display:none; position:absolute; top:100%; left:0; right:0;
+      background:#fff; flex-direction:column; align-items:stretch;
+      border-bottom:3px solid var(--shsu-orange);
+      padding:0.5rem 1.25rem 1rem; box-shadow:var(--shadow-md); }
+    .primary-nav.open{ display:flex; }
+    .primary-nav a{ padding:0.75rem 0; border-bottom:1px solid var(--shsu-gray-100); }
+    .menu-toggle{ display:block; }
+  }
+
+  /* =========================================================
+     BREADCRUMBS
+     ========================================================= */
+  .crumbs{
+    background:var(--shsu-gray-50);
+    border-bottom:1px solid var(--shsu-gray-100);
+    font-size:0.875rem;
+  }
+  .crumbs .container{ padding-top:0.75rem; padding-bottom:0.75rem; }
+  .crumbs a{ color:var(--shsu-gray-700); text-decoration:none; }
+  .crumbs a:hover{ color:var(--shsu-orange); text-decoration:underline; }
+  .crumbs .sep{ color:var(--shsu-gray-500); margin:0 0.5rem; }
+  .crumbs .current{ color:var(--shsu-black); font-weight:600; }
+
+  /* =========================================================
+     HERO
+     ========================================================= */
+  .hero {
+  background:
+    linear-gradient(135deg, rgba(20,20,20,0.88) 0%, rgba(20,20,20,0.65) 50%, rgba(20,20,20,0.80) 100%),
+    url('files/hero_image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(241,90,34,0.25), transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(241,90,34,0.15), transparent 40%);
+    pointer-events:none;
+  }
+  .hero-paw{
+    position:absolute;
+    right:-80px; bottom:-100px;
+    width:520px; height:auto;
+    opacity:0.08;
+    transform:rotate(-18deg);
+    pointer-events:none;
+    z-index:0;
+    filter:brightness(1.8);
+  }
+  @media (max-width:880px){
+    .hero-paw{ width:380px; right:-120px; bottom:-80px; opacity:0.06; }
+  }
+  .hero .container{
+    position:relative; z-index:1;
+    padding-top:4rem; padding-bottom:4rem;
+    display:grid; grid-template-columns:1.2fr 1fr; gap:3rem; align-items:center;
+  }
+  @media (max-width:880px){
+    .hero .container{ grid-template-columns:1fr; padding-top:2.5rem; padding-bottom:2.5rem; gap:2rem; }
+  }
+  .hero-eyebrow {
+  display: inline-block;
+  background: var(--shsu-orange);
+  color: #fff;
+  font-size: 0.9rem;           
+  letter-spacing: 0.15em;       
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.6rem 1.25rem;      
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);  
+  }
+  .hero h1{
+    font-family:var(--ff-display);
+    font-size:clamp(2rem, 4.5vw, 3.25rem);
+    font-weight:900;
+    line-height:1.1;
+    margin:0 0 1rem;
+    color:#fff;
+  }
+  .hero h1 em{ color:var(--shsu-orange); font-style:normal; }
+  .hero p.lead{
+    font-size:1.125rem;
+    color:#E8E8E8;
+    margin:0 0 2rem;
+    max-width:36rem;
+  }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:0.875rem; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    padding:0.875rem 1.5rem;
+    border:2px solid transparent;
+    font-weight:700; font-size:1rem;
+    border-radius:var(--radius-sm);
+    text-decoration:none; transition:all 0.15s ease;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:var(--shsu-orange); color:#fff; border-color:var(--shsu-orange);
+  }
+  .btn-primary:hover{ background:var(--shsu-orange-dark); border-color:var(--shsu-orange-dark); color:#fff; }
+  .btn-ghost{
+    background:transparent; color:#fff; border-color:#fff;
+  }
+  .btn-ghost:hover{ background:#fff; color:var(--shsu-black); }
+  .btn-outline{
+    background:#fff; color:var(--shsu-black); border-color:var(--shsu-black);
+  }
+  .btn-outline:hover{ background:var(--shsu-black); color:#fff; }
+
+  /* Hero side panel: contact quick-glance */
+  .hero-panel{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.14);
+    border-left:4px solid var(--shsu-orange);
+    backdrop-filter:blur(8px);
+    padding:1.75rem;
+    border-radius:var(--radius-md);
+  }
+  .hero-panel h3{
+    margin:0 0 1rem;
+    font-family:var(--ff-display);
+    font-size:1.125rem;
+    color:#fff;
+  }
+  .hero-panel dl{ margin:0; }
+  .hero-panel dt{
+    font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--shsu-orange); font-weight:700; margin-top:0.875rem;
+  }
+  .hero-panel dt:first-child{ margin-top:0; }
+  .hero-panel dd{ margin:0.25rem 0 0; font-size:0.9375rem; color:#fff; }
+  .hero-panel a{ color:#fff; }
+
+  /* =========================================================
+     SECTION SCAFFOLDING
+     ========================================================= */
+  section{ padding:4rem 0; }
+  @media (max-width:700px){ section{ padding:2.5rem 0; } }
+
+  .section-head{ margin-bottom:2.5rem; max-width:48rem; }
+  .section-head .kicker{
+    display:inline-block;
+    color:var(--shsu-orange);
+    font-size:0.8125rem; letter-spacing:0.12em; text-transform:uppercase;
+    font-weight:700; margin-bottom:0.5rem;
+  }
+  .section-head h2{
+    font-family:var(--ff-display);
+    font-size:clamp(1.75rem, 3vw, 2.25rem);
+    line-height:1.15;
+    margin:0 0 0.75rem;
+    color:var(--shsu-black);
+  }
+  .section-head p{
+    font-size:1.0625rem;
+    color:var(--shsu-gray-700);
+    margin:0;
+  }
+
+  /* =========================================================
+     3 STEPS
+     ========================================================= */
+  .steps-section{ background:var(--shsu-cream); }
+  .steps{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
+    counter-reset:step;
+  }
+  @media (max-width:880px){ .steps{ grid-template-columns:1fr; } }
+  .step{
+    background:#fff;
+    padding:2rem 1.75rem;
+    border-radius:var(--radius-md);
+    border:1px solid var(--shsu-gray-300);
+    border-top:4px solid var(--shsu-orange);
+    position:relative;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .step:hover{ transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+  .step-number{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:2.5rem; height:2.5rem;
+    background:var(--shsu-orange); color:#fff;
+    font-family:var(--ff-display); font-weight:900; font-size:1.25rem;
+    border-radius:50%;
+    margin-bottom:1rem;
+  }
+  .step h3{
+    font-family:var(--ff-display); font-size:1.1875rem;
+    margin:0 0 0.5rem; color:var(--shsu-black);
+  }
+  .step p{ margin:0 0 1rem; color:var(--shsu-gray-700); font-size:0.9375rem; }
+  .step a.step-link{
+    font-weight:700; font-size:0.9375rem;
+    color:var(--shsu-orange-dark); text-decoration:none;
+    display:inline-flex; align-items:center; gap:0.375rem;
+  }
+  .step a.step-link:hover{ color:var(--shsu-orange); }
+  .step a.step-link::after{ content:"→"; transition:transform 0.15s ease; }
+  .step a.step-link:hover::after{ transform:translateX(4px); }
+
+  /* =========================================================
+     BENEFIT FINDER 
+     ========================================================= */
+  .finder{
+    background:var(--shsu-gray-50);
+  }
+  .finder-card{
+    background:#fff;
+    border:1px solid var(--shsu-gray-300);
+    border-radius:var(--radius-lg);
+    padding:2rem;
+    box-shadow:var(--shadow-sm);
+  }
+  .finder-tabs{
+    display:flex; flex-wrap:wrap; gap:0.5rem;
+    border-bottom:2px solid var(--shsu-gray-100);
+    padding-bottom:1rem; margin-bottom:1.5rem;
+  }
+  .finder-tab{
+    padding:0.75rem 1.25rem;
+    background:var(--shsu-gray-100); color:var(--shsu-gray-900);
+    border:0; border-radius:var(--radius-sm);
+    font-weight:700; font-size:0.9375rem;
+    transition:all 0.15s ease;
+  }
+  .finder-tab:hover{ background:var(--shsu-gray-300); }
+  .finder-tab[aria-selected="true"]{
+    background:var(--shsu-orange); color:#fff;
+  }
+  .finder-panel{ display:none; }
+  .finder-panel.active{ display:block; animation:fadeIn 0.25s ease; }
+  @keyframes fadeIn{ from{ opacity:0; transform:translateY(4px); } to{ opacity:1; transform:none; } }
+  .finder-panel h3{
+    font-family:var(--ff-display); font-size:1.25rem;
+    color:var(--shsu-black); margin:0 0 0.75rem;
+  }
+  .finder-panel p{ margin:0 0 1rem; color:var(--shsu-gray-700); }
+  .finder-panel ul{ margin:0 0 1.25rem; padding-left:1.25rem; color:var(--shsu-gray-700); }
+  .finder-panel ul li{ margin-bottom:0.375rem; }
+
+  /* =========================================================
+     QUICK ACTIONS
+     ========================================================= */
+  .actions{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem;
+  }
+  @media (max-width:880px){ .actions{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:540px){ .actions{ grid-template-columns:1fr; } }
+  .action-card{
+    display:block;
+    padding:1.5rem;
+    background:#fff;
+    border:1px solid var(--shsu-gray-300);
+    border-radius:var(--radius-md);
+    text-decoration:none;
+    color:var(--shsu-gray-900);
+    transition:all 0.15s ease;
+    position:relative;
+  }
+  .action-card:hover{
+    border-color:var(--shsu-orange);
+    box-shadow:var(--shadow-md);
+    transform:translateY(-2px);
+    color:var(--shsu-black);
+  }
+  .action-card .icon{
+    width:44px; height:44px;
+    background:var(--shsu-orange-light);
+    color:var(--shsu-orange-dark);
+    border-radius:var(--radius-sm);
+    display:grid; place-items:center;
+    margin-bottom:0.875rem;
+  }
+  .action-card .icon svg{ width:22px; height:22px; }
+  .action-card h3{
+    font-family:var(--ff-display); font-size:1.0625rem;
+    margin:0 0 0.25rem; color:var(--shsu-black);
+  }
+  .action-card p{ margin:0; font-size:0.875rem; color:var(--shsu-gray-700); }
+
+  /* =========================================================
+     DEADLINES
+     ========================================================= */
+  .deadlines{ background:var(--shsu-black); color:#fff; }
+  .deadlines .container{
+    display:grid; grid-template-columns:1fr 1.3fr; gap:2.5rem; align-items:center;
+  }
+  @media (max-width:880px){ .deadlines .container{ grid-template-columns:1fr; } }
+  .deadlines h2{
+    font-family:var(--ff-display); font-size:2rem; margin:0 0 1rem; line-height:1.15;
+  }
+  .deadlines h2 em{ color:var(--shsu-orange); font-style:normal; }
+  .deadlines p{ color:#D4D4D4; margin:0 0 1.5rem; font-size:1rem; }
+  .deadlines-stats{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:1rem;
+  }
+  .deadlines-stat{
+    background:rgba(255,255,255,0.05);
+    border-left:3px solid var(--shsu-orange);
+    padding:1.25rem;
+    border-radius:var(--radius-sm);
+  }
+  .deadlines-stat .num{
+    font-family:var(--ff-display); font-weight:900;
+    font-size:2.25rem; line-height:1; color:var(--shsu-orange);
+  }
+  .deadlines-stat .lbl{
+    display:block; margin-top:0.375rem;
+    font-size:0.875rem; color:#E8E8E8;
+  }
+
+  /* =========================================================
+     FAQ 
+     ========================================================= */
+  .faq-list{ max-width:52rem; margin:0 auto; }
+  .faq-item{
+    border-bottom:1px solid var(--shsu-gray-300);
+  }
+  .faq-item:first-child{ border-top:1px solid var(--shsu-gray-300); }
+  .faq-question{
+    width:100%; text-align:left;
+    background:transparent; border:0;
+    padding:1.25rem 0.5rem;
+    display:flex; justify-content:space-between; align-items:center; gap:1rem;
+    font-size:1.0625rem; font-weight:700;
+    color:var(--shsu-black); font-family:var(--ff-body);
+  }
+  .faq-question:hover{ color:var(--shsu-orange-dark); }
+  .faq-question .chev{
+    flex-shrink:0;
+    width:1.75rem; height:1.75rem;
+    border-radius:50%;
+    background:var(--shsu-orange-light);
+    color:var(--shsu-orange-dark);
+    display:grid; place-items:center;
+    transition:transform 0.2s ease, background 0.15s ease;
+    font-weight:900; font-size:1rem;
+  }
+  .faq-question[aria-expanded="true"] .chev{
+    transform:rotate(45deg);
+    background:var(--shsu-orange); color:#fff;
+  }
+  .faq-answer{
+    max-height:0; overflow:hidden;
+    transition:max-height 0.3s ease;
+    color:var(--shsu-gray-700);
+  }
+  .faq-answer-inner{ padding:0 0.5rem 1.25rem; font-size:0.9375rem; }
+  .faq-answer-inner p{ margin:0 0 0.75rem; }
+  .faq-answer-inner p:last-child{ margin-bottom:0; }
+
+  .faq-cta{
+    margin-top:2rem; text-align:center;
+    color:var(--shsu-gray-700);
+  }
+
+  /* =========================================================
+     CONTACT
+     ========================================================= */
+  .contact{ background:var(--shsu-orange-light); }
+  .contact-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:2rem;
+  }
+  @media (max-width:880px){ .contact-grid{ grid-template-columns:1fr; } }
+  .contact-card{
+    background:#fff; padding:2rem;
+    border-radius:var(--radius-md);
+    border:1px solid var(--shsu-gray-300);
+  }
+  .contact-card h3{
+    font-family:var(--ff-display); font-size:1.25rem;
+    margin:0 0 1rem; color:var(--shsu-black);
+  }
+  .contact-card dl{ margin:0; }
+  .contact-card dt{
+    font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--shsu-gray-700); font-weight:700; margin-top:1rem;
+  }
+  .contact-card dt:first-child{ margin-top:0; }
+  .contact-card dd{ margin:0.25rem 0 0; font-size:1rem; color:var(--shsu-black); }
+  .contact-card a{ color:var(--shsu-orange-dark); font-weight:600; }
+  .hours-table{ width:100%; border-collapse:collapse; margin-top:0.5rem; }
+  .hours-table td{
+    padding:0.5rem 0; font-size:0.9375rem;
+    border-bottom:1px solid var(--shsu-gray-100);
+  }
+  .hours-table td:last-child{ text-align:right; color:var(--shsu-gray-700); }
+  .hours-table tr:last-child td{ border-bottom:0; }
+
+  /* =========================================================
+     FOOTER
+     ========================================================= */
+  .site-footer{
+    background:var(--shsu-black); color:#D4D4D4;
+    padding:3rem 0 2rem; font-size:0.875rem;
+  }
+  .footer-links{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+    gap:0.5rem 1.5rem; padding:0; margin:0 0 2rem;
+    list-style:none;
+  }
+  .footer-links a{ color:#D4D4D4; text-decoration:none; }
+  .footer-links a:hover{ color:var(--shsu-orange); text-decoration:underline; }
+  .footer-motto{
+    font-family:var(--ff-display); font-style:italic;
+    color:var(--shsu-orange); font-size:1rem;
+    text-align:center; padding-top:1.5rem;
+    border-top:1px solid rgba(255,255,255,0.1);
+    text-transform: uppercase;
+  }
+  .footer-paw{
+    display:block;
+    width:36px; height:auto;
+    margin:1.5rem auto 0.75rem;
+    opacity:0.85;
+  }
+  .footer-social {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.footer-social svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.footer-social a:hover {
+  background-color: currentColor; 
+}
+  /* =========================================================
+     FLOATING CHATBOT BUTTON (Dify placeholder)
+     Replace the button's onclick + add Dify embed script later.
+     ========================================================= */
+  .chatbot-fab{
+    position:fixed; bottom:1.5rem; right:1.5rem;
+    z-index:100;
+    display:flex; align-items:center; gap:0.625rem;
+    background:var(--shsu-orange); color:#fff;
+    border:0; padding:0.875rem 1.25rem;
+    border-radius:999px;
+    box-shadow:0 8px 24px rgba(241,90,34,0.4);
+    font-weight:700; font-size:0.9375rem;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .chatbot-fab:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 28px rgba(241,90,34,0.5);
+    background:var(--shsu-orange-dark);
+  }
+  .chatbot-fab .chatbot-icon{
+    width:24px; height:24px;
+    display:grid; place-items:center;
+    font-size:1.125rem;
+  }
+  .chatbot-fab .pulse{
+    position:absolute; top:-4px; right:-4px;
+    width:12px; height:12px;
+    background:#fff; border:2px solid var(--shsu-orange);
+    border-radius:50%;
+    animation:pulse 2s infinite;
+  }
+  .chatbot-fab .chatbot-icon svg{ width:20px; height:20px; }
+  .chatbot-fab .pulse{
+    position:absolute; top:-4px; right:-4px;
+    width:12px; height:12px;
+    background:#fff; border:2px solid var(--shsu-orange);
+    border-radius:50%;
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ transform:scale(1); opacity:1; }
+    50%{ transform:scale(1.4); opacity:0.6; }
+  }
+  @media (max-width:540px){
+    .chatbot-fab{ bottom:1rem; right:1rem; padding:0.75rem 1rem; font-size:0.875rem; }
+  }
+
+  /* Chatbot placeholder modal */
+  .chatbot-modal{
+    display:none;
+    position:fixed; bottom:5.5rem; right:1.5rem;
+    width:min(380px, calc(100vw - 2rem));
+    height:min(520px, calc(100vh - 8rem));
+    background:#fff;
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-lg);
+    z-index:99;
+    overflow:hidden;
+    flex-direction:column;
+  }
+  .chatbot-modal.open{ display:flex; }
+  .chatbot-header{
+    background:var(--shsu-black); color:#fff;
+    padding:1rem 1.25rem;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .chatbot-header h4{ margin:0; font-family:var(--ff-display); font-size:1rem; }
+  .chatbot-close{
+    background:none; border:0; color:#fff; font-size:1.5rem; line-height:1;
+    padding:0; cursor:pointer;
+  }
+  .chatbot-body{
+    flex:1; padding:1.5rem; background:var(--shsu-gray-50);
+    display:flex; flex-direction:column; gap:0.75rem;
+    overflow-y:auto;
+  }
+  .chatbot-placeholder{
+    background:#fff; padding:1rem;
+    border-radius:var(--radius-md);
+    border-left:3px solid var(--shsu-orange);
+    font-size:0.875rem; color:var(--shsu-gray-700);
+  }
+  .chatbot-placeholder strong{ color:var(--shsu-black); display:block; margin-bottom:0.375rem; }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== UTILITY BAR ===== -->
+  <div class="util-bar">
+    <div class="container">
+      <a href="https://www.shsu.edu/about/index.php" target="_blank" rel="noopener noreferrer">About</a>
+      <a href="https://www.shsu.edu/alumni-association/index.php" target="_blank" rel="noopener noreferrer">Alumni</a>
+      <a href="https://gobearkats.com/" target="_blank" rel="noopener noreferrer">Athletics</a>
+      <a href="https://www.shsu.edu/offices-departments/university-advancement/give-now.php" target="_blank" rel="noopener noreferrer">Giving</a>
+      <a href="https://www.shsu.edu/news/index.php" target="_blank" rel="noopener noreferrer">News</a>
+    </div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="https://www.shsu.edu/">
+        <img src="files/logo.png" alt="Sam Houston State University Logo">
+        <div class="logo-text">
+          <div class="kicker">Sam Houston</div>
+          <div class="name">State University</div>
+        </div>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <a href="https://www.shsu.edu/academics/index.php" target="_blank" rel="noopener noreferrer">Academics</a>
+        <a href="https://www.shsu.edu/admissions/index.php" target="_blank" rel="noopener noreferrer">Admissions</a>
+        <a href="https://www.shsu.edu/cost-aid/index.php" target="_blank" rel="noopener noreferrer">Cost &amp; Aid</a>
+        <a href="https://www.shsu.edu/campus-life/index.php" target="_blank" rel="noopener noreferrer">Campus Life</a>
+        <a href="https://www.shsu.edu/visit/index.php" target="_blank" rel="noopener noreferrer">Visit</a>
+        <a class="cta-apply" href="https://www.shsu.edu/admissions/apply/index.php" target="_blank" rel="noopener noreferrer">Apply</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== BREADCRUMBS ===== -->
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="https://www.shsu.edu/" target="_blank" rel="noopener noreferrer">Home</a>
+      <span class="sep">›</span>
+      <a href="https://www.shsu.edu/offices-departments/index.php" target="_blank" rel="noopener noreferrer">Offices &amp; Departments</a>
+      <span class="sep">›</span>
+      <span class="current">Veterans Benefits Processing</span>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-paw" src="files/bearkat_paw.png" alt="Bearkat Paw">
+      <div class="container">
+        <div>
+          <span class="hero-eyebrow">Veterans Benefits Processing</span>
+          <h1 id="hero-title">Your benefits, <em>processed with purpose.</em></h1>
+          <p class="lead">Personalized support for veterans, active service members, and dependents using VA and Hazlewood education benefits at SHSU.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="https://mysam.shsu.edu" target="_blank" rel="noopener noreferrer">Submit Certification Request →</a>
+            <a class="btn btn-ghost" href="#start-here">I'm New — Start Here</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Quick contact">
+          <h3>Need help now?</h3>
+          <dl>
+            <dt>Call</dt>
+            <dd><a href="tel:19362941440">936.294.1440</a></dd>
+            <dt>Email</dt>
+            <dd><a href="mailto:vetbenefits@shsu.edu">vetbenefits@shsu.edu</a></dd>
+            <dt>Visit</dt>
+            <dd>Estill Building, Suite 228<br>1903 University Ave, Huntsville, TX</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== 3 STEPS  ===== -->
+    <section class="steps-section" id="start-here" aria-labelledby="steps-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">New Student-Veteran</span>
+          <h2 id="steps-title">Three steps to start using your benefits</h2>
+          <p>Just admitted to SHSU and ready to use your VA or Hazlewood benefits? Follow this path and you'll be certified for your first semester.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="step-number" aria-hidden="true">1</div>
+            <h3>Apply for your benefit</h3>
+            <p>Get your VA Certificate of Eligibility (COE) or confirm your Hazlewood eligibility before the semester begins.</p>
+            <a class="step-link" href="https://www.va.gov/education/how-to-apply/" target="_blank" rel="noopener noreferrer">Apply with the VA</a>
+          </article>
+          <article class="step">
+            <div class="step-number" aria-hidden="true">2</div>
+            <h3>Submit documents in MySam</h3>
+            <p>Upload your COE and semester request form through your MySam portal. Everything is handled online — no email, fax, or mail.</p>
+            <a class="step-link" href="https://mysam.shsu.edu" target="_blank" rel="noopener noreferrer">Go to MySam</a>
+          </article>
+          <article class="step">
+            <div class="step-number" aria-hidden="true">3</div>
+            <h3>Track &amp; get certified</h3>
+            <p>Your certifying official reviews your request within 20 business days. You'll be contacted by email, text, or phone if anything is missing.</p>
+            <a class="step-link" href="#contact">Contact our office</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BENEFIT FINDER ===== -->
+    <section class="finder" aria-labelledby="finder-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Benefit Finder</span>
+          <h2 id="finder-title">Which benefit applies to me?</h2>
+          <p>Select the situation that best describes you and we'll show you only what matters for your path.</p>
+        </div>
+
+        <div class="finder-card">
+          <div class="finder-tabs" role="tablist" aria-label="Benefit type">
+            <button class="finder-tab" role="tab" aria-selected="true" aria-controls="panel-federal" id="tab-federal">Federal VA Benefits</button>
+            <button class="finder-tab" role="tab" aria-selected="false" aria-controls="panel-hazlewood" id="tab-hazlewood">Hazlewood (Texas)</button>
+            <button class="finder-tab" role="tab" aria-selected="false" aria-controls="panel-both" id="tab-both">Both Together</button>
+            <button class="finder-tab" role="tab" aria-selected="false" aria-controls="panel-dependent" id="tab-dependent">I'm a Dependent</button>
+          </div>
+
+          <div class="finder-panel active" id="panel-federal" role="tabpanel" aria-labelledby="tab-federal">
+            <h3>Federal VA Education Benefits</h3>
+            <p>VA benefits are earned through military service and vary by chapter. The most common at SHSU:</p>
+            <ul>
+              <li><strong>Chapter 33 (Post-9/11 GI Bill®)</strong> — VA pays tuition/fees directly; you receive a housing allowance and book stipend.</li>
+              <li><strong>Chapter 31 (VR&amp;E)</strong> — Your VR&amp;E counselor issues a Purchase Order covering tuition, fees, and books.</li>
+              <li><strong>Chapters 30, 35, 1606</strong> — VA sends payment directly to you; you're responsible for your tuition balance.</li>
+            </ul>
+            <a class="btn btn-outline" href="https://www.shsu.edu/offices-departments/veterans-benefits-processing/federal-benefits.php" target="_blank" rel="noopener noreferrer">See full Federal Benefits info →</a>
+          </div>
+
+          <div class="finder-panel" id="panel-hazlewood" role="tabpanel" aria-labelledby="tab-hazlewood" hidden>
+            <h3>Hazlewood Act — Texas State Benefit</h3>
+            <p>If you entered military service with Texas as your home of record, you may be entitled to up to 150 credit hours of tuition exemption at Texas public institutions.</p>
+            <ul>
+              <li>Waives up to 90% of standard tuition and fees.</li>
+              <li>Does <strong>not</strong> cover housing, meals, books, or the student service fee.</li>
+              <li>Eligible dependents may qualify under the Hazlewood Legacy Program.</li>
+            </ul>
+            <a class="btn btn-outline" href="https://www.shsu.edu/offices-departments/veterans-benefits-processing/hazlewood.php" target="_blank" rel="noopener noreferrer">See full Hazlewood info →</a>
+          </div>
+
+          <div class="finder-panel" id="panel-both" role="tabpanel" aria-labelledby="tab-both" hidden>
+            <h3>Combining Federal &amp; Hazlewood</h3>
+            <p>Some combinations are allowed — others are not. Here's a quick reference:</p>
+            <ul>
+              <li><strong>Ch. 30, 35, 1606 + Hazlewood:</strong> Yes, you can use both.</li>
+              <li><strong>Ch. 33 (Post-9/11) + Hazlewood:</strong> Only if your VA rating is less than 100% — Hazlewood can supplement.</li>
+              <li><strong>Ch. 31 (VR&amp;E) + Hazlewood:</strong> Cannot be combined.</li>
+            </ul>
+            <p>Unsure which applies? Give us a call at <a href="tel:19362941440">936.294.1440</a> and we'll walk through it with you.</p>
+          </div>
+
+          <div class="finder-panel" id="panel-dependent" role="tabpanel" aria-labelledby="tab-dependent" hidden>
+            <h3>Dependents &amp; Spouses</h3>
+            <p>If you're the child or spouse of a veteran, you may qualify for:</p>
+            <ul>
+              <li><strong>Chapter 35 (DEA)</strong> — Dependents' Educational Assistance for children/spouses of disabled or deceased veterans.</li>
+              <li><strong>Transferred Chapter 33</strong> — If a service member transferred Post-9/11 benefits to you.</li>
+              <li><strong>Hazlewood Legacy</strong> — Dependents of qualifying Texas veterans may use unused Hazlewood hours.</li>
+            </ul>
+            <a class="btn btn-outline" href="mailto:vetbenefits@shsu.edu">Email us about dependent benefits →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QUICK ACTIONS ===== -->
+    <section aria-labelledby="actions-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Common Tasks</span>
+          <h2 id="actions-title">What would you like to do?</h2>
+        </div>
+        <div class="actions">
+          <a class="action-card" href="https://mysam.shsu.edu" target="_blank" rel="noopener noreferrer">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
+            <h3>Submit a certification request</h3>
+            <p>Required every semester through MySam.</p>
+          </a>
+          <a class="action-card" href="https://www.shsu.edu/offices-departments/veterans-benefits-processing/active-duty-students.php" target="_blank" rel="noopener noreferrer">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h3>Active Duty resources</h3>
+            <p>Tuition Assistance and branch-specific guidance.</p>
+          </a>
+          <a class="action-card" href="https://www.shsu.edu/offices-departments/veterans-benefits-processing/federal-benefits.php" target="_blank" rel="noopener noreferrer">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/><line x1="9" y1="10" x2="9.01" y2="10"/><line x1="15" y1="10" x2="15.01" y2="10"/></svg></div>
+            <h3>Federal benefits details</h3>
+            <p>Full breakdown of Chapters 30, 31, 33, 35, 1606.</p>
+          </a>
+          <a class="action-card" href="https://www.shsu.edu/offices-departments/veterans-benefits-processing/hazlewood.php" target="_blank" rel="noopener noreferrer">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <h3>Hazlewood details</h3>
+            <p>Texas-specific tuition exemption info.</p>
+          </a>
+          <a class="action-card" href="https://www.shsu.edu/offices-departments/veterans-benefits-processing/people.php" target="_blank" rel="noopener noreferrer">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>Meet your certifying officials</h3>
+            <p>The team processing your benefits.</p>
+          </a>
+          <a class="action-card" href="https://www.shsu.edu/offices-departments/veterans-military-connected-center/index.php" target="_blank" rel="noopener noreferrer">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <h3>Veterans &amp; Military Center</h3>
+            <p>Community, events, and non-benefit support.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DEADLINES ===== -->
+    <section class="deadlines" aria-labelledby="deadlines-title">
+      <div class="container">
+        <div>
+          <h2 id="deadlines-title">Know the <em>deadlines</em> — don't miss a payment.</h2>
+          <p>Requests are processed in the order received. Submitting early is the single best thing you can do to make sure your benefit is active by the first class day.</p>
+          <a class="btn btn-primary" href="https://www.shsu.edu/offices-departments/registrar/calendars/index.php" target="_blank" rel="noopener noreferrer">View Academic Calendar →</a>
+        </div>
+        <div class="deadlines-stats">
+          <div class="deadlines-stat">
+            <span class="num">20</span>
+            <span class="lbl">Business days standard processing</span>
+          </div>
+          <div class="deadlines-stat">
+            <span class="num">1×</span>
+            <span class="lbl">Submit request every semester</span>
+          </div>
+          <div class="deadlines-stat">
+            <span class="num">100%</span>
+            <span class="lbl">Online through MySam</span>
+          </div>
+          <div class="deadlines-stat">
+            <span class="num">$0</span>
+            <span class="lbl">Email, fax, or mail accepted</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+          <span class="kicker">Top Questions</span>
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <p>The questions new student-veterans ask most often — with answers directly from our certifying officials.</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do I have to submit a Request Certification Form each semester?
+              <span class="chev" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p>Yes. If you plan to use your VA educational benefit or Hazlewood Exemption, you must submit the semester request form in MySam every semester. If you don't have access to the submission link, call us at 936.294.1440.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How long does it take to process my request?
+              <span class="chev" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p>All requests are processed in the order received. Allow up to 20 business days for standard processing. To make sure your benefit is active by the first class day, submit all paperwork in MySam by the priority deadline for the term.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What is a VA Certificate of Eligibility (COE) and do I need a new one each semester?
+              <span class="chev" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p>A COE is a determination letter from the VA confirming your entitlement to a specific education benefit. You only submit your COE to MySam for the first semester you use your benefit — not every semester — unless you take a long semester break (Fall or Spring).</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Will the VA pay tuition and fees directly to SHSU?
+              <span class="chev" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p><strong>Chapter 33 (Post-9/11):</strong> Yes — VA pays SHSU directly based on your entitlement percentage. You also get a book stipend and housing allowance.</p>
+              <p><strong>Chapter 31 (VR&amp;E):</strong> Yes — your counselor issues a Purchase Order to SHSU.</p>
+              <p><strong>Chapters 30, 35, 1606:</strong> No — the VA pays you directly; you're responsible for your tuition balance.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Why was I certified for fewer credits than I'm enrolled in?
+              <span class="chev" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p>The VA only pays for courses that are part of your degree plan. If a course isn't on your plan, your academic advisor must submit a Degree Plan Exception Form to the Registrar's Office. Once that's processed and noted in Degree Works, we can certify the course.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can I use Hazlewood and Chapter 33 at the same time?
+              <span class="chev" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p>Not usually — unless your VA disability rating is less than 100%, in which case Hazlewood can supplement your Chapter 33 benefit. Chapter 31 (VR&amp;E) cannot be combined with Hazlewood at all. Chapters 30, 35, and 1606 <em>can</em> be combined with Hazlewood.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <p class="faq-cta">
+          Still have questions? <a href="https://www.shsu.edu/offices-departments/veterans-benefits-processing/faq.php" target="_blank" rel="noopener noreferrer">See all FAQs</a> or <a href="mailto:vetbenefits@shsu.edu">email our team</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Contact &amp; Visit</span>
+          <h2 id="contact-title">We're here to help</h2>
+          <p>Stop by our office, send an email, or give us a call. We respond to most inquiries within one business day.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Veterans Benefits Processing Office</h3>
+            <dl>
+              <dt>Location</dt>
+              <dd>Estill Building, Suite 228<br>1903 University Avenue<br>Huntsville, TX 77340</dd>
+              <dt>Phone</dt>
+              <dd><a href="tel:19362941440">936.294.1440</a></dd>
+              <dt>Email</dt>
+              <dd><a href="mailto:vetbenefits@shsu.edu">vetbenefits@shsu.edu</a></dd>
+              <dt>Directions</dt>
+              <dd><a href="https://maps.shsu.edu/maps/shsu-map" target="_blank" rel="noopener noreferrer">View on campus map →</a></dd>
+            </dl>
+          </div>
+
+          <div class="contact-card">
+            <h3>Office Hours</h3>
+            <table class="hours-table">
+              <tr><td>Monday</td><td>8:00 AM – 5:00 PM</td></tr>
+              <tr><td>Tuesday</td><td>8:00 AM – 5:00 PM</td></tr>
+              <tr><td>Wednesday</td><td>8:00 AM – 5:00 PM</td></tr>
+              <tr><td>Thursday</td><td>8:00 AM – 5:00 PM</td></tr>
+              <tr><td>Friday</td><td>8:00 AM – 5:00 PM</td></tr>
+              <tr><td>Saturday &amp; Sunday</td><td>Closed</td></tr>
+            </table>
+            <p style="margin-top:1rem; font-size:0.875rem; color:var(--shsu-gray-700);">
+              Closed on university holidays. Check the <a href="https://www.shsu.edu/offices-departments/registrar/calendars/index.php" target="_blank" rel="noopener noreferrer">academic calendar</a> for observed dates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="https://www.shsu.edu/institutional-transparency/university-policies.php" target="_blank" rel="noopener noreferrer">Policies</a></li>
+        <li><a href="https://samweb.shsu.edu/pics03wp/" target="_blank" rel="noopener noreferrer">Employee &amp; Dept Search</a></li>
+        <li><a href="https://www.shsu.edu/offices-departments/title-ix/index.php" target="_blank" rel="noopener noreferrer">Title IX</a></li>
+        <li><a href="https://www.shsu.edu/institutional-transparency/index.php" target="_blank" rel="noopener noreferrer">Site Policies</a></li>
+        <li><a href="https://www.texas.gov/" target="_blank" rel="noopener noreferrer">State of Texas</a></li>
+        <li><a href="https://www.shsu.edu/offices-departments/counseling-center/index.php" target="_blank" rel="noopener noreferrer">Mental Health Counseling</a></li>
+        <li><a href="https://gov.texas.gov/organization/hsgd" target="_blank" rel="noopener noreferrer">Texas Homeland Security</a></li>
+        <li><a href="https://www.tsl.texas.gov/trail/index.html" target="_blank" rel="noopener noreferrer">TRAIL</a></li>
+        <li><a href="https://www.tsus.edu/offices/internal-audit/report-fraud.html" target="_blank" rel="noopener noreferrer">Fraud Reporting</a></li>
+        <li><a href="https://sao.fraud.texas.gov" target="_blank" rel="noopener noreferrer">State Auditor's Hotline</a></li>
+        <li><a href="https://www.shsu.edu/offices-departments/index.php" target="_blank" rel="noopener noreferrer">Site Directory</a></li>
+        <li><a href="https://www.shsu.edu/katsafe/index.php" target="_blank" rel="noopener noreferrer">KatSafe</a></li>
+        <li><a href="https://www.shsu.edu/hiring/index.php" target="_blank" rel="noopener noreferrer">Jobs</a></li>
+        <li><a href="https://www.shsu.edu/institutional-transparency/open-records-requests.php" target="_blank" rel="noopener noreferrer">Open Records</a></li>
+      </ul>
+
+  <!-- Social Media Buttons -->
+    <ul class="footer-social">
+      <li>
+        <a href="https://www.facebook.com/samhoustonstate/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/samhoustonstate" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          Twitter
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/samhoustonstate/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/school/sam-houston-state-university/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/user/samhoustonstate" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          YouTube
+        </a>
+      </li>
+    </ul>
+
+      <img class="footer-paw" src="files/bearkat-paw.png" alt="Bearkat paw" />
+      <p class="footer-motto">The measure of a life is its service</p>
+    </div>
+  </footer>
+
+  <!-- ===== CHATBOT (Dify placeholder) ===== -->
+  <button class="chatbot-fab" id="chatbotFab" aria-label="Open help chatbot">
+    <span class="chatbot-icon" aria-hidden="true">💬</span>
+    <span>Ask VBP</span>
+    <span class="pulse" aria-hidden="true"></span>
+  </button>
+
+  <div class="chatbot-modal" id="chatbotModal" role="dialog" aria-label="VBP Assistant" aria-hidden="true">
+    <div class="chatbot-header">
+      <h4>VBP Assistant</h4>
+      <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">×</button>
+    </div>
+    <div class="chatbot-body">
+      <div class="chatbot-placeholder">
+        <strong>Hi! I'm the VBP Assistant.</strong>
+        I can answer questions about VA benefits, Hazlewood, certification requests, and deadlines. This is a placeholder — once your Dify chatbot is ready, we'll swap this out for the real embed.
+      </div>
+      <div class="chatbot-placeholder">
+        <strong>👉 To integrate Dify later:</strong>
+        Replace the contents of <code>#chatbotModal .chatbot-body</code> with your Dify embed <code>&lt;iframe&gt;</code>, OR replace the whole floating button with Dify's web-SDK script block.
+      </div>
+    </div>
+  </div>
+
+<script>
+(function() {
+  'use strict';
+
+  function init() {
+    // Mobile menu toggle
+    var menuToggle = document.getElementById('menuToggle');
+    var primaryNav = document.getElementById('primaryNav');
+    if (menuToggle && primaryNav) {
+      menuToggle.addEventListener('click', function() {
+        var isOpen = primaryNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    // Benefit Finder tabs
+    var tabs = document.querySelectorAll('.finder-tab');
+    var panels = document.querySelectorAll('.finder-panel');
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        tabs.forEach(function(t) { t.setAttribute('aria-selected', 'false'); });
+        panels.forEach(function(p) {
+          p.classList.remove('active');
+          p.removeAttribute('hidden');
+          p.style.display = 'none';
+        });
+        tab.setAttribute('aria-selected', 'true');
+        var panelId = tab.getAttribute('aria-controls');
+        var panel = document.getElementById(panelId);
+        if (panel) {
+          panel.classList.add('active');
+          panel.style.display = 'block';
+          panel.removeAttribute('hidden');
+        }
+      });
+    });
+    // Ensure the initially-active panel is visible (defensive)
+    var activePanel = document.querySelector('.finder-panel.active');
+    if (activePanel) {
+      activePanel.style.display = 'block';
+      activePanel.removeAttribute('hidden');
+    }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        var answer = btn.nextElementSibling;
+        if (!answer) return;
+        if (!expanded) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          answer.style.maxHeight = '0';
+        }
+      });
+    });
+
+    // Chatbot toggle
+    var fab = document.getElementById('chatbotFab');
+    var modal = document.getElementById('chatbotModal');
+    var closeBtn = document.getElementById('chatbotClose');
+    if (fab && modal) {
+      fab.addEventListener('click', function() {
+        var isOpen = modal.classList.toggle('open');
+        modal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      });
+    }
+    if (closeBtn && modal) {
+      closeBtn.addEventListener('click', function() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
