@@ -544,13 +544,18 @@
   }
   .footer-links a{ color:#D4D4D4; text-decoration:none; }
   .footer-links a:hover{ color:var(--shsu-orange); text-decoration:underline; }
-  .footer-motto{
-    font-family:var(--ff-display); font-style:italic;
-    color:var(--shsu-orange); font-size:1rem;
-    text-align:center; padding-top:1.5rem;
-    border-top:1px solid rgba(255,255,255,0.1);
-    text-transform: uppercase;
-  }
+  .footer-motto {
+  font-family: var(--ff-display);
+  font-weight: 900;
+  font-style: normal;    
+  font-size: 1.25rem;        
+  color: var(--shsu-orange);
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;    
+}
   .footer-paw{
     display:block;
     width:36px; height:auto;
@@ -590,7 +595,9 @@
 }
 
 .footer-social a:hover {
-  background-color: currentColor; 
+  background-color: var(--shsu-orange);
+  color: #fff;
+  border-color: var(--shsu-orange);
 }
   /* =========================================================
      FLOATING CHATBOT BUTTON (Dify placeholder)
@@ -696,7 +703,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="logo" href="https://www.shsu.edu/">
-        <img class="logo-mark" src="files/shsu_logo.png" alt="Sam Houston State University Logo">
+        <img class="logo-mark" src="/files/shsu_logo.png" alt="Sam Houston State University Logo">
         <div class="logo-text">
           <div class="kicker">Sam Houston</div>
           <div class="name">State University</div>
@@ -1104,7 +1111,7 @@
 
   <!-- ===== CHATBOT (Dify placeholder) ===== -->
   <button class="chatbot-fab" id="chatbotFab" aria-label="Open help chatbot">
-    <span class="chatbot-icon" aria-hidden="true">💬</span>
+    <span class="chatbot-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
     <span>Ask VBP</span>
     <span class="pulse" aria-hidden="true"></span>
   </button>
