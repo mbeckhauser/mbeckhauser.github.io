@@ -601,90 +601,6 @@
   color: #fff;
   border-color: var(--shsu-orange);
 }
-  /* =========================================================
-     FLOATING CHATBOT BUTTON (Dify placeholder)
-     Replace the button's onclick + add Dify embed script later.
-     ========================================================= */
-  .chatbot-fab{
-    position:fixed; bottom:1.5rem; right:1.5rem;
-    z-index:100;
-    display:flex; align-items:center; gap:0.625rem;
-    background:var(--shsu-orange); color:#fff;
-    border:0; padding:0.875rem 1.25rem;
-    border-radius:999px;
-    box-shadow:0 8px 24px rgba(241,90,34,0.4);
-    font-weight:700; font-size:0.9375rem;
-    transition:transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .chatbot-fab:hover{
-    transform:translateY(-2px);
-    box-shadow:0 12px 28px rgba(241,90,34,0.5);
-    background:var(--shsu-orange-dark);
-  }
-  .chatbot-fab .chatbot-icon{
-    width:24px; height:24px;
-    display:grid; place-items:center;
-    font-size:1.125rem;
-  }
-  .chatbot-fab .pulse{
-    position:absolute; top:-4px; right:-4px;
-    width:12px; height:12px;
-    background:#fff; border:2px solid var(--shsu-orange);
-    border-radius:50%;
-    animation:pulse 2s infinite;
-  }
-  .chatbot-fab .chatbot-icon svg{ width:20px; height:20px; }
-  .chatbot-fab .pulse{
-    position:absolute; top:-4px; right:-4px;
-    width:12px; height:12px;
-    background:#fff; border:2px solid var(--shsu-orange);
-    border-radius:50%;
-    animation:pulse 2s infinite;
-  }
-  @keyframes pulse{
-    0%,100%{ transform:scale(1); opacity:1; }
-    50%{ transform:scale(1.4); opacity:0.6; }
-  }
-  @media (max-width:540px){
-    .chatbot-fab{ bottom:1rem; right:1rem; padding:0.75rem 1rem; font-size:0.875rem; }
-  }
-
-  /* Chatbot placeholder modal */
-  .chatbot-modal{
-    display:none;
-    position:fixed; bottom:5.5rem; right:1.5rem;
-    width:min(380px, calc(100vw - 2rem));
-    height:min(520px, calc(100vh - 8rem));
-    background:#fff;
-    border-radius:var(--radius-lg);
-    box-shadow:var(--shadow-lg);
-    z-index:99;
-    overflow:hidden;
-    flex-direction:column;
-  }
-  .chatbot-modal.open{ display:flex; }
-  .chatbot-header{
-    background:var(--shsu-black); color:#fff;
-    padding:1rem 1.25rem;
-    display:flex; justify-content:space-between; align-items:center;
-  }
-  .chatbot-header h4{ margin:0; font-family:var(--ff-display); font-size:1rem; }
-  .chatbot-close{
-    background:none; border:0; color:#fff; font-size:1.5rem; line-height:1;
-    padding:0; cursor:pointer;
-  }
-  .chatbot-body{
-    flex:1; padding:1.5rem; background:var(--shsu-gray-50);
-    display:flex; flex-direction:column; gap:0.75rem;
-    overflow-y:auto;
-  }
-  .chatbot-placeholder{
-    background:#fff; padding:1rem;
-    border-radius:var(--radius-md);
-    border-left:3px solid var(--shsu-orange);
-    font-size:0.875rem; color:var(--shsu-gray-700);
-  }
-  .chatbot-placeholder strong{ color:var(--shsu-black); display:block; margin-bottom:0.375rem; }
 </style>
 </head>
 <body>
@@ -1110,31 +1026,6 @@
       <p class="footer-motto">The measure of a life is its service</p>
     </div>
   </footer>
-
-  <!-- ===== CHATBOT (Dify placeholder) ===== -->
-  <button class="chatbot-fab" id="chatbotFab" aria-label="Open help chatbot">
-    <span class="chatbot-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-    <span>Ask VBP</span>
-    <span class="pulse" aria-hidden="true"></span>
-  </button>
-
-  <div class="chatbot-modal" id="chatbotModal" role="dialog" aria-label="VBP Assistant" aria-hidden="true">
-    <div class="chatbot-header">
-      <h4>VBP Assistant</h4>
-      <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">×</button>
-    </div>
-    <div class="chatbot-body">
-      <div class="chatbot-placeholder">
-        <strong>Hi! I'm the VBP Assistant.</strong>
-        I can answer questions about VA benefits, Hazlewood, certification requests, and deadlines. This is a placeholder — once your Dify chatbot is ready, we'll swap this out for the real embed.
-      </div>
-      <div class="chatbot-placeholder">
-        <strong>👉 To integrate Dify later:</strong>
-        Replace the contents of <code>#chatbotModal .chatbot-body</code> with your Dify embed <code>&lt;iframe&gt;</code>, OR replace the whole floating button with Dify's web-SDK script block.
-      </div>
-    </div>
-  </div>
-
 <script>
 (function() {
   'use strict';
@@ -1178,7 +1069,7 @@
       activePanel.removeAttribute('hidden');
     }
 
-    // FAQ accordion
+        // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var expanded = btn.getAttribute('aria-expanded') === 'true';
@@ -1192,25 +1083,8 @@
         }
       });
     });
-
-    // Chatbot toggle
-    var fab = document.getElementById('chatbotFab');
-    var modal = document.getElementById('chatbotModal');
-    var closeBtn = document.getElementById('chatbotClose');
-    if (fab && modal) {
-      fab.addEventListener('click', function() {
-        var isOpen = modal.classList.toggle('open');
-        modal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-      });
-    }
-    if (closeBtn && modal) {
-      closeBtn.addEventListener('click', function() {
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-      });
-    }
   }
-
+ 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
@@ -1218,5 +1092,29 @@
   }
 })();
 </script>
+  <!-- ===== CHATBOT (Dify) ===== -->
+  <script>
+    window.difyChatbotConfig = {
+      token: 'cmo42tRr9xUXi1Di',
+      inputs: {},
+      systemVariables: {},
+      userVariables: {},
+    }
+  </script>
+  <script
+    src="https://udify.app/embed.min.js"
+    id="cmo42tRr9xUXi1Di"
+    defer>
+  </script>
+  <style>
+    #dify-chatbot-bubble-button {
+      background-color: #F15A22 !important;
+    }
+    #dify-chatbot-bubble-window {
+      width: 24rem !important;
+      height: 40rem !important;
+    }
+  </style>
+ 
 </body>
 </html>
