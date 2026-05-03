@@ -72,15 +72,15 @@
      UTILITY BAR 
      ========================================================= */
   .util-bar{
-    background:var(--shsu-black);
-    color:#fff;
+    background:#BBDDF6;
+    color:#004853;
     font-size:0.8125rem;
   }
   .util-bar .container{
     display:flex; justify-content:flex-end; align-items:center;
     gap:1.5rem; padding-top:0.5rem; padding-bottom:0.5rem;
   }
-  .util-bar a{ color:#fff; text-decoration:none; }
+  .util-bar a{ color:#004853; text-decoration:none; }
   .util-bar a:hover{ color:var(--shsu-orange); }
   @media (max-width:700px){ .util-bar{ display:none; } }
 
@@ -111,11 +111,11 @@
   .logo-text{ line-height:1.1; }
   .logo-text .kicker{
     font-family:var(--ff-display); font-size:1rem;
-    color:var(--shsu-gray-700); font-weight:900;
+    color:var(--shsu-orange); font-weight:900;
   }
   .logo-text .name{
     font-family:var(--ff-display); font-weight:600; font-size:0.75rem;
-    color:var(--shsu-black);
+    color:var(--shsu-orange);
   }
   .primary-nav{ display:flex; align-items:center; gap:1.25rem; }
   .primary-nav a{
@@ -601,6 +601,7 @@
   color: #fff;
   border-color: var(--shsu-orange);
 }
+
 </style>
 </head>
 <body>
@@ -1069,7 +1070,7 @@
       activePanel.removeAttribute('hidden');
     }
 
-        // FAQ accordion
+    // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var expanded = btn.getAttribute('aria-expanded') === 'true';
@@ -1084,7 +1085,7 @@
       });
     });
   }
- 
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
@@ -1095,7 +1096,7 @@
   <!-- ===== CHATBOT (Dify) ===== -->
   <script>
     window.difyChatbotConfig = {
-      token: 'yRutjjwFt0g9SSiH',
+      token: 'cmo42tRr9xUXi1Di',
       inputs: {},
       systemVariables: {},
       userVariables: {},
@@ -1103,7 +1104,7 @@
   </script>
   <script
     src="https://udify.app/embed.min.js"
-    id="yRutjjwFt0g9SSiH"
+    id="cmo42tRr9xUXi1Di"
     defer>
   </script>
   <style>
@@ -1113,11 +1114,8 @@
     #dify-chatbot-bubble-window {
       width: 24rem !important;
       height: 40rem !important;
-      position: fixed !important;      
-      bottom: 5rem !important;
-      right: 1.5rem !important;
     }
   </style>
- 
+
 </body>
 </html>
