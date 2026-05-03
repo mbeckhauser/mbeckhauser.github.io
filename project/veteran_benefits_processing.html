@@ -305,20 +305,13 @@
   @media (max-width:880px){
     .hero .container{ grid-template-columns:1fr; padding-top:2.5rem; padding-bottom:2.5rem; gap:2rem; }
   }
-  .hero-eyebrow {
-    display: block;
-    width: 100%;
-    background: var(--shsu-orange);
-    color: #fff;
-    font-size: 1.5rem;
-    letter-spacing: 0.1em;
+  .hero-label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    font-weight: 900;
-    font-family: var(--ff-display);
-    padding: 1rem 1.5rem;
-    border-radius: var(--radius-sm);
-    margin-bottom: 1.25rem;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+    color: #a3d237;
+    margin: 0 0 0.75rem;
   }
   .hero h1 {
     font-family: var(--ff-display);
@@ -328,23 +321,38 @@
     margin: 0 0 0.75rem;
     color: #E8E8E8;
   }
-  .hero h1 em { 
-    color: var(--shsu-orange); 
-    font-style: italic; 
+  .hero h1 {
+    font-family: var(--ff-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin: 0 0 1rem;
+    color: #fff;
+    border-left: 5px solid var(--shsu-orange);
+    padding-left: 1rem;
   }
-  .hero-divider {
-    width: 60px;
-    height: 3px;
-    background: var(--shsu-orange);
-    margin: 1rem 0;
-    border-radius: 2px;
+  .hero h1 em {
+    color: var(--shsu-orange);
+    font-style: normal;
+    display: block;
   }
-  .hero p.lead{
-    font-size:1.125rem;
-    color:#E8E8E8;
-    margin:0 0 2rem;
-    max-width:36rem;
+  .hero-tagline {
+    font-family: var(--ff-display);
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
   }
+  .hero p.lead {
+    font-size: 1rem;
+    color: #E8E8E8;
+    margin: 0 0 2rem;
+    max-width: 36rem;
+    padding-left: 1.25rem;
+    border-left: 2px solid rgba(255,255,255,0.15);
+  }
+  
   .hero-ctas{ display:flex; flex-wrap:wrap; gap:0.875rem; }
   .btn{
     display:inline-flex; align-items:center; gap:0.5rem;
@@ -479,7 +487,7 @@
   }
   .finder-tab{
     padding:0.75rem 1.25rem;
-    background:var(--shsu-gray-100); color:#004853;
+    background:var(--shsu-gray-100); color:var(--shsu-orange);
     border:0; border-radius:var(--radius-sm);
     font-weight:700; font-size:0.9375rem;
     transition:all 0.15s ease;
@@ -526,8 +534,8 @@
   }
   .action-card .icon{
     width:44px; height:44px;
-    background:#e3f1c3;
-    color:#004853;
+    background:var(--shsu-orange-light);
+    color:var(--shsu-orange);
     border-radius:var(--radius-sm);
     display:grid; place-items:center;
     margin-bottom:0.875rem;
@@ -836,9 +844,8 @@
       <img class="hero-paw" src="/files/bearkat_paw.png" alt="Bearkat Paw">
       <div class="container">
         <div>
-          <span class="hero-eyebrow">Veterans Benefits Processing</span>
-          <h1 id="hero-title">Your benefits, <em>processed with purpose.</em></h1>
-          <div class="hero-divider" aria-hidden="true"></div>
+          <h1 id="hero-title">Veterans Benefits <br><em>Processing</em></h1>
+          <p class="hero-tagline">Your benefits, processed with purpose.</p>
           <p class="lead">Personalized support for veterans, active service members, and dependents using VA and Hazlewood education benefits at SHSU.</p>
           <div class="hero-ctas">
             <a class="btn btn-primary" href="https://mysam.shsu.edu" target="_blank" rel="noopener noreferrer">Submit Certification Request →</a>
