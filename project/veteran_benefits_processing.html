@@ -151,6 +151,102 @@
   }
 
   /* =========================================================
+   NAV DROPDOWN
+   ========================================================= */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  background: none;
+  border: 0;
+  color: #004853;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  font-family: var(--ff-body);
+  padding: 0.5rem 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-dropdown-toggle:hover {
+  color: #004853;
+  text-decoration: underline;
+  text-decoration-color: var(--shsu-orange);
+  text-underline-offset: 3px;
+}
+
+.nav-arrow {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown-toggle[aria-expanded="true"] .nav-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background: #004853;
+  border-top: 3px solid var(--shsu-orange);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  min-width: 200px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+}
+
+.nav-dropdown-menu[hidden] {
+  display: none;
+}
+
+.nav-dropdown-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.65rem 1.25rem;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.nav-dropdown-menu a:hover {
+  background: rgba(255,255,255,0.08);
+  border-left-color: #a3d237;
+  color: #a3d237;
+  text-decoration: none;
+}
+
+@media (max-width: 880px) {
+  .nav-dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border-top: none;
+    border-left: 3px solid var(--shsu-orange);
+    background: var(--shsu-gray-50);
+    margin: 0.25rem 0 0.5rem 1rem;
+    border-radius: 0;
+    padding: 0;
+  }
+  .nav-dropdown-menu a {
+    color: #004853;
+    padding: 0.5rem 1rem;
+    border-left: none;
+    border-bottom: 1px solid var(--shsu-gray-100);
+  }
+  .nav-dropdown-menu a:hover {
+    color: var(--shsu-orange);
+    background: none;
+  }
+}
+
+  /* =========================================================
      BREADCRUMBS
      ========================================================= */
   .crumbs{
@@ -637,7 +733,23 @@
       </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
       <nav class="primary-nav" id="primaryNav" aria-label="Primary">
-        <a href="https://www.shsu.edu/academics/index.php" target="_blank" rel="noopener noreferrer">Academics</a>
+
+        <!-- Academics with dropdown -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="dropdown-academics">
+            Academics <span class="nav-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown-menu" id="dropdown-academics" hidden>
+            <a href="https://www.shsu.edu/academics/index.php" target="_blank" rel="noopener noreferrer">Academics Home</a>
+            <a href="https://www.shsu.edu/academics/majors-programs/" target="_blank" rel="noopener noreferrer">Majors &amp; Programs</a>
+            <a href="https://www.shsu.edu/academics/online/" target="_blank" rel="noopener noreferrer">SHSU Online</a>
+            <a href="https://www.shsu.edu/academics/honors-college/" target="_blank" rel="noopener noreferrer">Honors College</a>
+            <a href="https://www.shsu.edu/academics/colleges/" target="_blank" rel="noopener noreferrer">Colleges</a>
+            <a href="https://www.shsu.edu/academics/graduate-professional-school/" target="_blank" rel="noopener noreferrer">Graduate Studies</a>
+            <a href="https://www.shsu.edu/academics/research/" target="_blank" rel="noopener noreferrer">Research</a>
+          </div>
+        </div>
+
         <a href="https://www.shsu.edu/admissions/index.php" target="_blank" rel="noopener noreferrer">Admissions</a>
         <a href="https://www.shsu.edu/cost-aid/index.php" target="_blank" rel="noopener noreferrer">Cost &amp; Aid</a>
         <a href="https://www.shsu.edu/campus-life/index.php" target="_blank" rel="noopener noreferrer">Campus Life</a>
@@ -1048,6 +1160,33 @@
         menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
     }
+
+    // Academics dropdown
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(function(toggle) {
+      toggle.addEventListener('click', function() {
+        var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        var menuId = toggle.getAttribute('aria-controls');
+        var menu = document.getElementById(menuId);
+        toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        if (isOpen) {
+          menu.setAttribute('hidden', '');
+        } else {
+          menu.removeAttribute('hidden');
+        }
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
+        if (!dropdown.contains(e.target)) {
+          var toggle = dropdown.querySelector('.nav-dropdown-toggle');
+          var menu = dropdown.querySelector('.nav-dropdown-menu');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+          if (menu) menu.setAttribute('hidden', '');
+        }
+      });
+    });
 
     // Benefit Finder tabs
     var tabs = document.querySelectorAll('.finder-tab');
