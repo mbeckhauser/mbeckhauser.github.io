@@ -173,14 +173,17 @@
 
 .nav-dropdown-toggle:hover {
   color: #004853;
-  text-decoration: underline;
-  text-decoration-color: var(--shsu-orange);
-  text-underline-offset: 3px;
 }
 
 .nav-arrow {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   transition: transform 0.2s ease;
+  text-decoration: none;
+  display:inline-block;
+}
+
+.nav-dropdown-toggle:hover .nav-arrow {
+  text-decoration: none;
 }
 
 .nav-dropdown-toggle[aria-expanded="true"] .nav-arrow {
@@ -750,14 +753,61 @@
           </div>
         </div>
 
-        <a href="https://www.shsu.edu/admissions/index.php" target="_blank" rel="noopener noreferrer">Admissions</a>
-        <a href="https://www.shsu.edu/cost-aid/index.php" target="_blank" rel="noopener noreferrer">Cost &amp; Aid</a>
-        <a href="https://www.shsu.edu/campus-life/index.php" target="_blank" rel="noopener noreferrer">Campus Life</a>
-        <a href="https://www.shsu.edu/visit/index.php" target="_blank" rel="noopener noreferrer">Visit</a>
-        <a class="cta-apply" href="https://www.shsu.edu/admissions/apply/index.php" target="_blank" rel="noopener noreferrer">Apply</a>
+        <!-- Admissions with dropdown -->
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="dropdown-admissions">
+              Admissions <span class="nav-arrow" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dropdown-menu" id="dropdown-admissions" hidden>
+              <a href="https://www.shsu.edu/admissions/index.php" target="_blank" rel="noopener noreferrer">Admissions Home</a>
+              <a href="https://www.shsu.edu/admissions/apply/freshmen-steps-checklist" target="_blank" rel="noopener noreferrer">Freshmen</a>
+              <a href="https://www.shsu.edu/admissions/apply/graduate-steps-checklist" target="_blank" rel="noopener noreferrer">Graduate</a>
+              <a href="https://www.shsu.edu/academics/colleges/polytechnic-college/apply" target="_blank" rel="noopener noreferrer">SamPoly</a>
+              <a href="https://www.shsu.edu/admissions/apply/transfer-steps-checklist" target="_blank" rel="noopener noreferrer">Transfer</a>
+              <a href="https://www.shsu.edu/admissions/apply/international-steps-checklist" target="_blank" rel="noopener noreferrer">International</a>
+              <a href="https://www.shsu.edu/admissions/accepted/" target="_blank" rel="noopener noreferrer">Accepted Students</a>
+            </div>
+          </div>
+
+          <!-- Cost & Aid with dropdown -->
+            <div class="nav-dropdown">
+              <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="dropdown-cost-aid">
+                Cost &amp; Aid <span class="nav-arrow" aria-hidden="true">▾</span>
+              </button>
+              <div class="nav-dropdown-menu" id="dropdown-cost-aid" hidden>
+                <a href="https://www.shsu.edu/cost-aid/" target="_blank" rel="noopener noreferrer">Cost &amp; Aid Home</a>
+                <a href="https://www.shsu.edu/cost-aid/cost-attendance" target="_blank" rel="noopener noreferrer">Cost of Attendance</a>
+                <a href="https://www.shsu.edu/cost-aid/types-of-aid/" target="_blank" rel="noopener noreferrer">Types of Aid</a>
+                <a href="https://www.shsu.edu/cost-aid/faqs" target="_blank" rel="noopener noreferrer">Frequently Asked Questions</a>
+                <a href="https://www.shsu.edu/offices-departments/student-account-services/" target="_blank" rel="noopener noreferrer">Student Account Services</a>
+                <a href="https://www.shsu.edu/cost-aid/bearkat-promise" target="_blank" rel="noopener noreferrer">Bearkat Promise</a>
+              </div>
+            </div>
+
+            <!-- Campus Life with dropdown -->
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="dropdown-campus-life">
+                  Campus Life <span class="nav-arrow" aria-hidden="true">▾</span>
+                </button>
+                <div class="nav-dropdown-menu" id="dropdown-campus-life" hidden>
+                  <a href="https://www.shsu.edu/campus-life/" target="_blank" rel="noopener noreferrer">Campus Life Home</a>
+                  <a href="https://www.shsu.edu/campus-life/housing/" target="_blank" rel="noopener noreferrer">Housing</a>
+                  <a href="https://www.shsu.edu/campus-life/greek-life/" target="_blank" rel="noopener noreferrer">Greek Life</a>
+                  <a href="https://www.shsu.edu/campus-life/dining/select-a-plan" target="_blank" rel="noopener noreferrer">Eat on Campus</a>
+                  <a href="https://www.shsu.edu/campus-life/clubs-orgs/" target="_blank" rel="noopener noreferrer">Clubs &amp; Organizations</a>
+                  <a href="https://www.shsu.edu/campus-life/recreation-fitness/" target="_blank" rel="noopener noreferrer">Recreation &amp; Fitness</a>
+                </div>
+              </div>
+
+            <!-- Visit -->
+                <a href="https://www.shsu.edu/visit/" target="_blank" rel="noopener noreferrer">Visit</a>
+                
+            <!-- Apply button -->
+                <a class="cta-apply" href="https://www.shsu.edu/admissions/apply/index.php" target="_blank" rel="noopener noreferrer">Apply</a>
       </nav>
     </div>
   </header>
+
 
   <!-- ===== BREADCRUMBS ===== -->
   <nav class="crumbs" aria-label="Breadcrumb">
