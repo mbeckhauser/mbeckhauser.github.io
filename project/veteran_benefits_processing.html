@@ -82,7 +82,7 @@
     gap:1.5rem; padding-top:0.5rem; padding-bottom:0.5rem;
   }
   .util-bar a{ color:#004853; text-decoration:none; }
-  .util-bar a:hover{ color:var(--shsu-orange); }
+  .util-bar a:hover{ text-decoration:underline; text-underline-offset:3px; }
   @media (max-width:700px){ .util-bar{ display:none; } }
 
   /* =========================================================
@@ -118,17 +118,23 @@
     font-family:var(--ff-display); font-weight:600; font-size:0.75rem;
     color:var(--shsu-orange);
   }
-  .primary-nav{ display:flex; align-items:center; gap:1.25rem; }
+  .primary-nav{ 
+    display:flex; align-items:center; gap:1.25rem; 
+  }
   .primary-nav a{
-    color:var(--shsu-gray-900); text-decoration:none; font-weight:600;
+    color:#004853; text-decoration:none; font-weight:600;
     font-size:0.9375rem; padding:0.5rem 0; position:relative;
   }
-  .primary-nav a:hover{ color:var(--shsu-orange); }
+  .primary-nav a:hover{ 
+    color:#004853; 
+    text-decoration:underline; text-decoration-color:var(--shsu-orange) text-underline-offset:3px; 
+  }
   .primary-nav .cta-apply{
     background:var(--shsu-orange); color:#fff;
     padding:0.5rem 1rem; border-radius:var(--radius-sm);
+    text-decoration:none;
   }
-  .primary-nav .cta-apply:hover{ background:var(--shsu-orange-dark); color:#fff; }
+  .primary-nav .cta-apply:hover{ background:var(--shsu-orange-dark); color:#fff; text-decoration:none; }
   .menu-toggle{
     display:none; background:none; border:0;
     font-size:1.5rem; color:var(--shsu-teal);
