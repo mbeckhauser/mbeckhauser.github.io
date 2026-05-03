@@ -175,6 +175,9 @@
 
 .nav-dropdown-toggle:hover {
   color: #004853;
+  text-decoration:underline;
+  text-decoration-color:var(--shsu-teal);
+  text-underline-offset:3px;
 }
 
 .nav-arrow {
@@ -186,6 +189,7 @@
 
 .nav-dropdown-toggle:hover .nav-arrow {
   text-decoration: none;
+  display:inline-block;
 }
 
 .nav-dropdown-toggle[aria-expanded="true"] .nav-arrow {
@@ -222,10 +226,10 @@
 }
 
 .nav-dropdown-menu a:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.04);
   border-left-color: var(--shsu-orange);
   color: var(--shsu-orange);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 @media (max-width: 880px) {
