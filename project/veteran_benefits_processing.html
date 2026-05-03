@@ -175,15 +175,20 @@
 
 .nav-dropdown-toggle:hover {
   color: #004853;
-  text-decoration:underline;
-  text-decoration-color:var(--shsu-teal);
-  text-underline-offset:3px;
+  text-decoration:none;
+}
+
+.nav-dropdown-toggle:hover .nav-toggle-text {
+  text-decoration: underline;
+  text-decoration-color: #004853;
+  text-underline-offset: 3px;
 }
 
 .nav-arrow {
   font-size: 0.9rem;
   transition: transform 0.2s ease;
   text-decoration: none !important;
+  display: inline-block;
 }
 
 .nav-dropdown-toggle:hover .nav-arrow {
@@ -790,7 +795,7 @@
         <!-- Academics with dropdown -->
         <div class="nav-dropdown">
           <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="dropdown-academics">
-            Academics <span class="nav-arrow" aria-hidden="true">▾</span>
+            <span class="nav-toggle-text">Academics</span> <span class="nav-arrow" aria-hidden="true">▾</span>
           </button>
           <div class="nav-dropdown-menu" id="dropdown-academics" hidden>
             <a href="https://www.shsu.edu/academics/index.php" target="_blank" rel="noopener noreferrer">Academics Home</a>
@@ -806,7 +811,7 @@
         <!-- Admissions with dropdown -->
           <div class="nav-dropdown">
             <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="dropdown-admissions">
-              Admissions <span class="nav-arrow" aria-hidden="true">▾</span>
+              <span class="nav-toggle-text">Admissions</span> <span class="nav-arrow" aria-hidden="true">▾</span>
             </button>
             <div class="nav-dropdown-menu" id="dropdown-admissions" hidden>
               <a href="https://www.shsu.edu/admissions/index.php" target="_blank" rel="noopener noreferrer">Admissions Home</a>
@@ -822,7 +827,7 @@
           <!-- Cost & Aid with dropdown -->
             <div class="nav-dropdown">
               <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="dropdown-cost-aid">
-                Cost &amp; Aid <span class="nav-arrow" aria-hidden="true">▾</span>
+                <span class="nav-toggle-text">Cost &amp; Aid</span> <span class="nav-arrow" aria-hidden="true">▾</span>
               </button>
               <div class="nav-dropdown-menu" id="dropdown-cost-aid" hidden>
                 <a href="https://www.shsu.edu/cost-aid/" target="_blank" rel="noopener noreferrer">Cost &amp; Aid Home</a>
@@ -837,7 +842,7 @@
             <!-- Campus Life with dropdown -->
               <div class="nav-dropdown">
                 <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="dropdown-campus-life">
-                  Campus Life <span class="nav-arrow" aria-hidden="true">▾</span>
+                  <span class="nav-toggle-text">Campus Life</span> <span class="nav-arrow" aria-hidden="true">▾</span>
                 </button>
                 <div class="nav-dropdown-menu" id="dropdown-campus-life" hidden>
                   <a href="https://www.shsu.edu/campus-life/" target="_blank" rel="noopener noreferrer">Campus Life Home</a>
